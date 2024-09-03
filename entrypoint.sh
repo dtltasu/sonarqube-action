@@ -40,6 +40,6 @@ if [[ ! -f "${INPUT_PROJECTBASEDIR%/}/sonar-project.properties" ]]; then
 else
   sonar-scanner \
     -Dsonar.host.url="${INPUT_HOST}" \
-    -Dsonar.login="${INPUT_LOGIN}" \
+    -Dsonar.token="${INPUT_LOGIN}" \
     -Dsonar.password="${SONAR_PASSWORD}"
 fi
