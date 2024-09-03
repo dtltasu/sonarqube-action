@@ -1,4 +1,4 @@
-# SonarQube GitHub Action
+# Sonar-Qube GitHub Action
 
 Using this GitHub Action, scan your code with SonarQube scanner to detects bugs, vulnerabilities and code smells in more than 20 programming languages!
 
@@ -37,7 +37,7 @@ jobs:
         # Disabling shallow clone is recommended for improving relevancy of reporting
         fetch-depth: 0
     - name: SonarQube Scan
-      uses: kitabisa/sonarqube-action@v1.2.0
+      uses: dtltaus/sonarqube-action@1
       with:
         host: ${{ secrets.SONARQUBE_HOST }}
         login: ${{ secrets.SONARQUBE_TOKEN }}
@@ -46,7 +46,7 @@ jobs:
 You can change the analysis base directory and/or project key by using the optional input like this:
 
 ```yaml
-uses: kitabisa/sonarqube-action@master
+uses: dtltasu/sonarqube-action@master
 with:
   host: ${{ secrets.SONARQUBE_HOST }}
   login: ${{ secrets.SONARQUBE_TOKEN }}
