@@ -20,7 +20,7 @@ if [[ ! -f "${INPUT_PROJECTBASEDIR%/}/sonar-project.properties" ]]; then
   [[ -z "${INPUT_PROJECTKEY}" ]] && SONAR_PROJECTKEY="${REPOSITORY_NAME}" || SONAR_PROJECTKEY="${INPUT_PROJECTKEY}"
   [[ -z "${INPUT_PROJECTNAME}" ]] && SONAR_PROJECTNAME="${REPOSITORY_NAME}" || SONAR_PROJECTNAME="${INPUT_PROJECTNAME}"
   [[ -z "${INPUT_PROJECTVERSION}" ]] && SONAR_PROJECTVERSION="" || SONAR_PROJECTVERSION="${INPUT_PROJECTVERSION}"
-  sonar-scanner \
+  sonar-scanner -X \
     -D sonar.host.url="${INPUT_HOST}" \
     -D sonar.projectKey="${SONAR_PROJECTKEY}" \
     -D sonar.projectName="${SONAR_PROJECTNAME}" \
@@ -30,7 +30,7 @@ if [[ ! -f "${INPUT_PROJECTBASEDIR%/}/sonar-project.properties" ]]; then
     -D sonar.sources="${INPUT_PROJECTBASEDIR}" \
     -D sonar.sourceEncoding="${INPUT_ENCODING}"
 else
-  sonar-scanner \
+  sonar-scanner -X \
     -D sonar.host.url="${INPUT_HOST}" \
     -D sonar.token="${INPUT_TOKEN}"
 fi
