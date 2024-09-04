@@ -21,16 +21,16 @@ if [[ ! -f "${INPUT_PROJECTBASEDIR%/}/sonar-project.properties" ]]; then
   [[ -z "${INPUT_PROJECTNAME}" ]] && SONAR_PROJECTNAME="${REPOSITORY_NAME}" || SONAR_PROJECTNAME="${INPUT_PROJECTNAME}"
   [[ -z "${INPUT_PROJECTVERSION}" ]] && SONAR_PROJECTVERSION="" || SONAR_PROJECTVERSION="${INPUT_PROJECTVERSION}"
   sonar-scanner \
-    -Dsonar.host.url="${INPUT_HOST}" \
-    -Dsonar.projectKey="${SONAR_PROJECTKEY}" \
-    -Dsonar.projectName="${SONAR_PROJECTNAME}" \
-    -Dsonar.projectVersion="${SONAR_PROJECTVERSION}" \
-    -Dsonar.projectBaseDir="${INPUT_PROJECTBASEDIR}" \
-    -Dsonar.token="${INPUT_TOKEN}" \
-    -Dsonar.sources="${INPUT_PROJECTBASEDIR}" \
-    -Dsonar.sourceEncoding="${INPUT_ENCODING}"
+    -D sonar.host.url="${INPUT_HOST}" \
+    -D sonar.projectKey="${SONAR_PROJECTKEY}" \
+    -D sonar.projectName="${SONAR_PROJECTNAME}" \
+    -D sonar.projectVersion="${SONAR_PROJECTVERSION}" \
+    -D sonar.projectBaseDir="${INPUT_PROJECTBASEDIR}" \
+    -D sonar.token="${INPUT_TOKEN}" \
+    -D sonar.sources="${INPUT_PROJECTBASEDIR}" \
+    -D sonar.sourceEncoding="${INPUT_ENCODING}"
 else
   sonar-scanner \
-    -Dsonar.host.url="${INPUT_HOST}" \
-    -Dsonar.token="${INPUT_TOKEN}"
+    -D sonar.host.url="${INPUT_HOST}" \
+    -D sonar.token="${INPUT_TOKEN}"
 fi
